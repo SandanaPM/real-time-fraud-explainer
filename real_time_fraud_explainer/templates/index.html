@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real-Time Fraud Explainer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">HACKATHON PROTOTYPE</p>
+      <h1>Real-Time Fraud Explainer</h1>
+      <p>Detect suspicious UPI-style payments and explain the warning in plain language.</p>
+    </section>
+
+    <section class="grid">
+      <form id="fraudForm" class="card">
+        <h2>Transaction simulator</h2>
+
+        <label>Amount (₹)
+          <input id="amount" type="number" min="1" value="85000" required>
+        </label>
+
+        <label>Beneficiary
+          <select id="beneficiary_new">
+            <option value="true">New beneficiary</option>
+            <option value="false">Known beneficiary</option>
+          </select>
+        </label>
+
+        <label>Transaction hour (0–23)
+          <input id="hour" type="number" min="0" max="23" value="2">
+        </label>
+
+        <label>Transactions in last 10 minutes
+          <input id="tx_count" type="number" min="0" value="7">
+        </label>
+
+        <label>Device changed
+          <select id="device_changed">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </label>
+
+        <label>Location changed
+          <select id="location_changed">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </label>
+
+        <label>Merchant risk
+          <select id="merchant_risk">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </label>
+
+        <label>Collect/payment request
+          <select id="collect_request">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </label>
+
+        <button type="submit">Check transaction in real time</button>
+      </form>
+
+      <section class="card result" id="result">
+        <div class="placeholder">
+          <div class="shield">🛡️</div>
+          <h2>Waiting for a transaction</h2>
+          <p>The system will show the risk score, reasons, and recommended action here.</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="card">
+      <h2>Recent checks</h2>
+      <div id="recent">No checks yet.</div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

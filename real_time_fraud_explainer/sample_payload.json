@@ -1,0 +1,10 @@
+{
+  "amount": 85000,
+  "beneficiary_new": true,
+  "hour": 2,
+  "transactions_last_10_min": 7,
+  "device_changed": true,
+  "location_changed": true,
+  "merchant_risk": "medium",
+  "collect_request": true
+}
